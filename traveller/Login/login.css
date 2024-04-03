@@ -1,0 +1,74 @@
+body, html {
+    height: 100%;
+}
+.container-fluid {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-form {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 200px;
+    margin-left: 100px;
+}
+.login-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(5px); 
+    height: 60px;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 60px;
+    margin-right: 10px;
+  }
+  
+  .logo-name{
+    font-size: 20px; 
+    color: white; 
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-right: 20px;
+  }
+  
+  .nav-links li:last-child {
+    margin-right: 0;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 5px;
+  }
+  
+  .nav-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffc107; 
+  }

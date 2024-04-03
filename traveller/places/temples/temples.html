@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temples</title>
+  <link rel="stylesheet" href="./temples.css">
+</head>
+<body>
+  <div class="container">
+    <div class="place">
+      <img src="../../images/meenakshi temple.jpeg" alt="Place 1">
+      <div class="place-details">
+        <div class="place-name">Madurai Meenakshi-Temple</div>
+        <div class="place-description">
+          <p>Experience the culture of Madurai with this private tour of its ancient temples. Spend approximately 45 minutes visiting each of the Dravidian temples built by the Pandyan and Madurai Nayak kings, earning the city its nickname Koil Maanagar, which means Temple City</p>
+        </div>
+        <h3><a href="#" class="book-link"  style="color: deepskyblue; display: flex; margin-top: 10px; margin-bottom: 30px; margin-left: 320px; text-decoration: none;">Book</a></h3>
+      </div>
+    </div>
+
+
+    <div class="place">
+      <img src="../../images/brihadeeswar.jpeg" alt="Place 2">
+      <div class="place-details">
+        <div class="place-name">Brihadeeswar Temple</div>
+        <div class="place-description">
+          <p>Brihadishvara Temple, also called Rajarajesvaram or Peruvudaiyar Kovil, is a Hindu temple dedicated to Shiva located in Thanjavur, Tamil Nadu, India.</p>
+        </div>
+        <h3><a href="#" style="color: deepskyblue; display: flex; margin-top: 50px; margin-bottom: 0px; margin-left: 320px; text-decoration: none;">Book</a></h3>
+      </div>
+    </div>
+
+
+    <div class="place">
+      <img src="../../images/dhyanalinga.jpeg" alt="Place 3">
+      <div class="place-details">
+        <div class="place-name">Dhyanalinga Temple</div>
+        <div class="place-description">
+          <p>The Dhyanalinga is set amidst the foothills of the Velliangiri Mountains, the first of its kind to be completed in over 2000 years. This powerful meditative space does not ascribe to any particular faith or belief system</p>   
+        </div>
+      </div>
+      <h3><a href="#" style="color: deepskyblue; display: flex; margin-top: 1px;  margin-left: 340px; text-decoration: none;">Book</a></h3>
+    </div>
+  </div>
+
+  <nav>
+    <div class="logo">
+      <a href="#"><img src="../../images/travelLogo.png" alt="Logo"></a>
+      <span class="logo-name">TravelXplore</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="../places.html">Places</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div id="overlay"></div>
+  <div id="booking-form">
+    <span class="close-btn">&#10006;</span>
+    <h2>Book to explore</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br>
+
+      <label for="contact">Contact Number:</label>
+      <input type="text" id="contact" name="contact" required><br>
+
+      <label for="people">Number of People:</label>
+      <input type="number" id="people" name="people" required><br>
+
+      <label for="food">Food Preference:</label>
+      <select id="food" name="food">
+        <option value="with">With Food</option>
+        <option value="without">Without Food</option>
+      </select><br>
+
+      <label for="transport">Mode of Transport:</label>
+      <select id="transport" name="transport">
+        <option value="car">Car</option>
+        <option value="bus">Bus</option>
+      </select><br>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script src="./temples.js"></script>
+</body>
+</html>

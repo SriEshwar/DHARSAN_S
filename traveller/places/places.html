@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./places.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="content">
+        <h2>Temples</h2>
+        <p>Explore ancient temples and experience the rich cultural heritage.</p>
+        <a href="#" id="locationTemples">Explore Temples</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="content">
+        <h2>Mountain Views</h2>
+        <p>Enjoy breathtaking views from the top of the mountains.</p>
+        <a href="#">Explore Mountain Views</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="content">
+        <h2>Trekking</h2>
+        <p>Embark on adventurous trekking trails through scenic landscapes.</p>
+        <a href="#">Go Trekking</a>
+      </div>
+
+      <div class="card">
+        <div class="content">
+          <h2>Adventures</h2>
+          <p>Experience thrilling adventures and adrenaline-pumping activities.</p>
+          <a href="#">Explore Adventures</a>
+        </div>
+      </div>
+  </div>
+  <nav>
+    <div class="logo">
+      <a href="#"><img src="../images/travelLogo.png" alt="Logo"></a>
+      <span class="logo-name">TravelXplore</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </nav>
+  <script>
+    var Temples = document.getElementById("locationTemples");
+    Temples.addEventListener("click",function(){
+      window.location.href = "./temples/temples.html"
+    })
+  </script>
+</body>
+
+</html>
