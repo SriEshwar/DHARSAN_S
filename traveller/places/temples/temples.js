@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-
-
     closeBtn.addEventListener("click", function () {
       overlay.style.display = "none";
       bookingForm.style.display = "none";
