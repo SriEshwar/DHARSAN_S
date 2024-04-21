@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+
+    <form id="registrationForm" action="http://localhost:3000/register" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div>
+            <label for="rollNo">Roll Number:</label>
+            <input type="text" id="rollNo" name="rollNo" required>
+        </div>
+        
+        <div>
+            <label for="dep">Department:</label>
+            <input type="text" id="dep" name="dep" required>
+        </div>
+
+        <div>
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" name="mobile" required>
+        </div>
+
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            const mobileInput = document.getElementById('mobile');
+            if (!/^\d+$/.test(mobileInput.value)) {
+                alert('Mobile number should contain only numbers.');
+                event.preventDefault(); 
+            }
+        });
+    </script>
+</body>
+</html>
