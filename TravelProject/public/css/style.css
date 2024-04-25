@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .video-container {
+    position: fixed;
+    width: 100%;
+  }
+  
+  video {
+    width: 100%;
+    height: 100%;
+  }
+  
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(5px); 
+    height: 80px;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 60px;
+    margin-right: 10px;
+  }
+  
+  .logo-name{
+    font-size: 20px; 
+    color: white; 
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-right: 20px;
+  }
+  
+  .nav-links li:last-child {
+    margin-right: 0;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 5px;
+  }
+  
+  .nav-links li a:hover {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffc107; 
+  }
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  width: calc(33.3333% - 10px);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-text {
+  padding: 10px;
+  text-align: center;
+}
+
+.image-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 75px;
+  height: 90vh; 
+  position: fixed;
+}
+
+.image-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-section:hover .overlay {
+  opacity: 1;
+}
+
+.quote {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 40px;
+  font-weight: bold italic;
+  margin-bottom: 20px;
+}
+
+.start-journey {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid #ffc107;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-journey:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffc107; 
+}
+
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  color: #333;
+  width: 350px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-elemnt {
+  margin-bottom: 15px;
+}
+
+.form-elemnt label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+
+.form-elemnt input[type="email"],
+.form-elemnt input[type="password"],
+.form-elemnt input[type='text'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-elemnt button {
+  width: 30%;
+  padding: 10px;
+  background-color: #ffc107;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  z-index: 3;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelGuide</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="../video/Homevideo.mp4" type="video/mp4">
+    </video>
+    <nav>
+      <div class="logo">
+        <a href="#"><img src="../images/travelLogo.png" alt="Logo"></a>
+        <span class="logo-name">TravelXplore</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/home">Home</a></li>
+        <li><a href="./desinations">Desinations</a></li>
+        <li><a href="./places/places.html">Booking</a></li>
+        <li><a href="#" id="loginBtn">Login</a></li>
+        <li><a href="#" id="signupBtn">Signup</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="popup" id="signupPopup">
+      <div class="form">
+        <div class="close-btn" id="closeBtn">&times;</div>
+        <h2>Signup</h2>
+
+        <div class="form-elemnt">
+          <label for="name">Name</label>
+          <input class='inputType' type="text" id="name" placeholder="Enter Name">
+        </div>
+
+        <div class="form-elemnt">
+          <label for="email">Email</label>
+          <input class='inputType' type="email" id="email" placeholder="Enter Email">
+        </div>
+
+        <div class="form-elemnt">
+          <label for="password">Password</label>
+          <input class='inputType' type="password" id="password" placeholder="Enter Password">
+        </div>
+
+        <div class="form-elemnt">
+          <label for="cpassword">Confirm Password</label>
+          <input class='inputType' type="password" id="cpassword" placeholder="Confirm Password">
+        </div>
+
+        <div class="form-elemnt">
+          <button id="signupSubmit">Signup</button>
+        </div>
+    </div>
+  </div>
+
+  <div class="popup" id="loginPopup">
+    <div class="form">
+      <div class="close-btn" id="logincloseBtn">&times;</div>
+      <h2>Login</h2>
+      <div class="form-elemnt">
+        <label for="name">Name</label>
+        <input class='inputType' type="text" id="name" placeholder="Enter Name">
+      </div>
+      <div class="form-elemnt">
+        <label for="password">Password</label>
+        <input class='inputType' type="password" id="password" placeholder="Enter Password">
+      </div>
+      <div class="form-elemnt">
+        <button id="loginSubmit">Login</button>
+      </div>
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>
