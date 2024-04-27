@@ -69,3 +69,93 @@
 // }
 
 // arr.delete(10);
+
+// let value = 10;
+// let value1 = 20;
+// console.log(value+value1);//arithmetic operators
+
+// let isGreater = value > value1;
+// console.log(isGreater);//comparsion operators
+
+// let isEqual = value == value1;
+// {
+//     let isEqual = value === value1;
+// }
+
+// let result  = true && false;//logical operators
+
+
+// let isUserLoggedIn = true;
+// let userRole = "admin";
+
+//conditional statments
+
+// if (isUserLoggedIn) {
+//     if (userRole === "admin") {
+//         console.log("Welcome, admin!");
+//     } else if (userRole === "user") {
+//         console.log("Welcome, user!");
+//     } else {
+//         console.log("Unknown user role");
+//     }
+// } else {
+//     console.log("Please log in to access the site");
+// }
+
+// let day = "Monday";
+
+// switch (day) {
+//     case "Monday":
+//         console.log("It's Monday");
+//         break;
+//     case "Tuesday":
+//         console.log("It's Tuesday");
+//         break;
+//     default:
+//         console.log("It's another day");
+// }
+
+// let isLogged = true;
+
+// let message = isLogged ? "User is logged in" : "User is not logged in";
+// console.log(message);
+
+// Callback Example
+// function fetchData(callback) {
+//     setTimeout(function() {
+//         callback("Data fetched");
+//     }, 2000);
+// }
+
+// fetchData(function(data) {
+//     console.log(data); 
+// });
+
+// Promise Example
+// function fetchData() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Data fetched");
+//         }, 2000);
+//     });
+// }
+
+// fetchData().then(data => {
+//     console.log(data); 
+// });
+
+//synchronous
+// console.log("Start");
+// console.log("Middle");
+// console.log("End");
+
+
+// asynchronous
+// console.log("Start");
+
+// setTimeout(() => {
+//     console.log("Async operation complete");
+// }, 2000);
+
+// console.log("End");
+
