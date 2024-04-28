@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.getElementById('closeBtn');
     const loginCloseBtn = document.getElementById('logincloseBtn');
 
+
     signupBtn.addEventListener('click', () => {
         signupPopup.style.display = 'block';
     });
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeBtn.addEventListener('click', () => {
         signupPopup.style.display = 'none';
-  
+        optForm.style.display = 'none';
     });
 
     loginCloseBtn.addEventListener('click',()=>{
@@ -35,4 +36,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+});
+
+const otpcloseBtn = document.getElementById('otpcloseBtn');
+otpcloseBtn.addEventListener('click',()=>{
+    document.getElementById("otpForm").style.display = 'none';
+})
+
+
+
+document.getElementById("signupSubmit").addEventListener("click", function() {
+    document.getElementById("signupForm").style.display = "none";
+    document.getElementById("otpForm").style.display = "block";
+});
+
+document.getElementById("verifyOtp").addEventListener("click", function() {
+    const otp = document.getElementById("otp").value;
+    fetch('/verify-otp', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ otp: otp })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.verified) {
+            window.location.href = "/home"; 
+        } else {
+            alert("Invalid OTP. Please try again.");
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 });

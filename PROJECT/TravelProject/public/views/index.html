@@ -27,7 +27,7 @@
   </div>
 
   <div class="popup" id="signupPopup">
-      <div class="form">
+      <div class="form" id="signupForm">
         <div class="close-btn" id="closeBtn">&times;</div>
         <h2>Signup</h2>
 
@@ -54,8 +54,21 @@
         <div class="form-elemnt">
           <button id="signupSubmit">Signup</button>
         </div>
+
     </div>
   </div>
+
+  <div class="form" id="otpForm" style="display: none;">
+      <div class="close-btn" id="otpcloseBtn">&times;</div>
+      <h2>OTP Verification</h2>
+      <div class="form-elemnt">
+        <label for="otp">Enter OTP</label>
+        <input class='inputType' type="text" id="otp" placeholder="Enter OTP">
+      </div>
+      <div class="form-elemnt">
+        <button id="verifyOtp">Verify OTP</button>
+      </div>
+    </div>
 
   <div class="popup" id="loginPopup">
     <div class="form">
