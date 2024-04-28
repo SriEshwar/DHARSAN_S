@@ -1,161 +1,200 @@
-// var n = 5;
-// var n = 5; same variableName  can be declared multiple times
+//  Variables
+// let firstName; // Declaration
+// firstName = "John"; // Initialization
+// console.log(firstName); // Output: John
 
-// let n =5;
-// let n =5;In let can use the same variableName in same block,in different block 
-
-// const n =10;
-// console.log(n);
-// {
-//     const n = 20;
-//     console.log(n); in same block also const is fixed in different block const same variable can changed
-
-
-// function sum(x,y){
-//     return x+y;   normal function
+//  Scope
+// function greet() {
+//     let message = "Hello"; // Local scope
+//     console.log(message);
 // }
-// var number = sum(20,30);
-// console.log(number);
+// greet(); // Output: Hello
+// console.log(message); // Error: message is not defined
 
-// x = (z,y)=>{
-//     return z+y;    arrow function
+//  Hoisting
+// console.log(age); // Output: undefined
+// var age = 30;
+
+// Data Types
+// let name = "Alice"; // String
+// let age = 25; // Number
+// let isStudent = true; // Boolean
+// let score = null; // Null
+// let address; // Undefined
+// let person = { name: "Bob", age: 30 }; // Object
+// let fruits = ["Apple", "Banana", "Orange"]; // Array
+// function greet() { console.log("Hello!"); } // Function
+
+
+//  Function Declaration
+// function add(a, b) {
+//     return a + b;
 // }
-// var number = x(10,20);
-// console.log(number)
+// console.log(add(3, 5)); // Output: 8
 
+//  Function Expression
+// let subtract = function(a, b) {
+//     return a - b;
+// };
+// console.log(subtract(8, 3)); // Output: 5
 
-// display = (numb)=>{
-//     console.log(numb)   callback function
+//  Arrow Function
+// let multiply = (a, b) => a * b;
+// console.log(multiply(2, 4)); // Output: 8
+
+//  Function Parameters and Arguments
+// function greet(name) {
+//     console.log("Hello, " + name);
 // }
+// greet("Alice"); // Output: Hello, Alice
 
-// num = (x,y,callback)=>{
-//     n = x+y;
-//     callback(n);
+//  Return Statement
+// function isEven(num) {
+//     return num % 2 === 0;
 // }
+// console.log(isEven(4)); // Output: true
 
-// var z = num(10,20,display);
-// console.log(z);
-
-// var n = 0          event onclick function
-// function count(){
-//     n += 1
-//     document.getElementById('increment').innerHTML = n;
-// }
-
-// var str = "hi im there";
-// var n = str.length;
-// n = str.charAt(1);
-// n = str.charAt(0).toUpperCase();
-// n = str.slice(1,str.length);
-// n = str.at(1);
-// console.log(n)
-
-
-// let arr = new Array();
-// arr.push(10);
-// arr.push(20);
-// arr.push(30);
-// arr.push(40);
-// arr.push(50);
-// arr.push(60);
-// arr.pop(60);
-
-// // arr.at(1);
-// // n = arr.length;
-// // console.log(n);
-
-// for(let i=0; i<arr.length;i++){
-//     console.log(arr[i]);
-// }
-
-// arr.delete(10);
-
-// let value = 10;
-// let value1 = 20;
-// console.log(value+value1);//arithmetic operators
-
-// let isGreater = value > value1;
-// console.log(isGreater);//comparsion operators
-
-// let isEqual = value == value1;
-// {
-//     let isEqual = value === value1;
-// }
-
-// let result  = true && false;//logical operators
-
-
-// let isUserLoggedIn = true;
-// let userRole = "admin";
-
-//conditional statments
-
-// if (isUserLoggedIn) {
-//     if (userRole === "admin") {
-//         console.log("Welcome, admin!");
-//     } else if (userRole === "user") {
-//         console.log("Welcome, user!");
-//     } else {
-//         console.log("Unknown user role");
+// Scope and Closures
+// let x = 10;
+// function outer() {
+//     let y = 20;
+//     function inner() {
+//         console.log(x + y);
 //     }
-// } else {
-//     console.log("Please log in to access the site");
+//     return inner;
 // }
+// let innerFunction = outer();
+// innerFunction(); // Output: 30
 
-// let day = "Monday";
 
-// switch (day) {
-//     case "Monday":
-//         console.log("It's Monday");
-//         break;
-//     case "Tuesday":
-//         console.log("It's Tuesday");
-//         break;
-//     default:
-//         console.log("It's another day");
-// }
+// Real-Time Example: Task Management Application
+// let tasks = [
+//     { id: 1, title: "Finish report", priority: "High", status: "Incomplete" },
+//     { id: 2, title: "Send email", priority: "Medium", status: "Complete" },
+//     { id: 3, title: "Schedule meeting", priority: "Low", status: "Incomplete" }
+// ];
 
-// let isLogged = true;
+// Filtering tasks based on priority
+// let highPriorityTasks = tasks.filter(task => task.priority === "High");
+// console.log(highPriorityTasks);
 
-// let message = isLogged ? "User is logged in" : "User is not logged in";
-// console.log(message);
+// Mapping tasks to titles
+// let taskTitles = tasks.map(task => task.title);
+// console.log(taskTitles);
 
-// Callback Example
-// function fetchData(callback) {
-//     setTimeout(function() {
-//         callback("Data fetched");
-//     }, 2000);
-// }
+// Summing up task IDs
+// let totalTaskIds = tasks.reduce((total, task) => total + task.id, 0);
+// console.log(totalTaskIds);
 
-// fetchData(function(data) {
-//     console.log(data); 
-// });
 
-// Promise Example
+// Creating Objects
+// let person = {
+//     name: "John",
+//     age: 30,
+//     greet: function() {
+//         console.log("Hello!");
+//     }
+// };
+
+// Accessing Object Properties
+// console.log(person.name); // Output: John
+// console.log(person["age"]); // Output: 30
+
+// Adding and Modifying Object Properties
+// person.city = "New York";
+// person.age = 35;
+
+// Object Methods
+// person.greet(); // Output: Hello!
+
+// Object Destructuring
+// let { name, age } = person;
+// console.log(name, age); // Output: John 35
+
+// Object Prototypes and Inheritance (Example omitted due to space limitations)
+
+// Promise Creation
 // function fetchData() {
 //     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             resolve("Data fetched");
-//         }, 2000);
+//         if (operationSucceeds) {
+//             resolve(data);
+//         } else {
+//             reject(error);
+//         }
 //     });
 // }
 
-// fetchData().then(data => {
-//     console.log(data); 
-// });
+// Promise Chaining
+// fetchData()
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
 
-//synchronous
-// console.log("Start");
-// console.log("Middle");
-// console.log("End");
+// let day = "Monday";
+
+// if-else Statement
+// if (day === "Saturday" || day === "Sunday") {
+//     console.log("It's a weekend!");
+// } else {
+//     console.log("It's a weekday.");
+// }
+
+// switch Statement
+// switch (day) {
+//     case "Monday":
+//         console.log("It's Monday.");
+//         break;
+//     case "Tuesday":
+//         console.log("It's Tuesday.");
+//         break;
+//     // Other cases...
+//     default:
+//         console.log("It's some other day.");
+// }
+
+// for Loop
+// for (let i = 1; i <= 5; i++) {
+//     console.log(i);
+// }
+
+// while Loop
+// let count = 1;
+// while (count <= 5) {
+//     console.log(count);
+//     count++;
+// }
+
+//  do-while Loop
+// let num = 1;
+// do {
+//     console.log(num);
+//     num++;
+// } while (num <= 5);
+
+// function syncTask() {
+//     console.log("Task 1");
+//     console.log("Task 2");
+//     console.log("Task 3");
+// }
+// syncTask();
+
+// function asyncTask() {
+//     console.log("Task 1");
+//     setTimeout(() => console.log("Task 2"), 2000); // Simulating a delay of 2 seconds
+//     console.log("Task 3");
+// }
+// asyncTask();
 
 
-// asynchronous
-// console.log("Start");
 
-// setTimeout(() => {
-//     console.log("Async operation complete");
-// }, 2000);
+// function fetchData(callback) {
+//     setTimeout(() => {
+//         let data = "Async data";
+//         callback(data);
+//     }, 2000);
+// }
 
-// console.log("End");
+// function processData(data) {
+//     console.log("Processing data:", data);
+// }
 
+// fetchData(processData);
