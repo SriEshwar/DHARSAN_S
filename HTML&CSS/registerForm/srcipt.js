@@ -7,7 +7,7 @@ function validateForm() {
     var address = document.getElementById("address").value;
     var aadhar = document.getElementById("aadhar").value;
 
-    if (name == "" || `!/^[a-zA-Z ]+$/`.test(name)) {
+    if (name == "" ) {
       alert("Please enter a valid name");
       return false;
     }
