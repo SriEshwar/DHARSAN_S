@@ -8,39 +8,41 @@
 </head>
 <body>
   <div class="container">
-    <form class="registration-form" action="#" method="post">
+    <form class="registration-form" action="#" method="post" onsubmit="return validateForm()">
       <h2>Registration</h2>
       <div class="input-container">
         <i class="fa-solid fa-user"></i>
-        <input type="text" placeholder="Name" required>
+        <input type="text" id="name" name="name" placeholder="Name" required>
       </div>
       <div class="input-container">
         <i class="fa-regular fa-id-card"></i>
-        <input type="text" placeholder="Register No" required>
+        <input type="text" id="registerNo" name="registerNo" placeholder="Register No" required>
       </div>
       <div class="input-container">
         <i class="fa-solid fa-envelope"></i>
-        <input type="email" placeholder="Email" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
       </div>
       <div class="input-container">
         <i class="fa-solid fa-phone-volume"></i>
-        <input type="tel" placeholder="Phone Number" required>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
       </div>
       <div class="input-container">
         <i class="fa-solid fa-book"></i>
-        <input type="text" placeholder="PAN No" required>
+        <input type="text" id="pan" name="pan" placeholder="PAN No" required>
       </div>
       <div class="input-container">
         <i class="fa-solid fa-address-book"></i>
-        <input type="text" placeholder="Address" required>
+        <input type="text" id="address" name="address" placeholder="Address" required>
       </div>
       <div class="input-container">
         <i class="fa-solid fa-id-card-clip"></i>
-        <input type="text" placeholder="Aadhar No" required>
+        <input type="text" id="aadhar" name="aadhar" placeholder="Aadhar No" required>
       </div>
       <button type="submit">Register</button>
     </form>
   </div>
   <script src="https://kit.fontawesome.com/7ce52bc640.js" crossorigin="anonymous"></script>
+  <script src="./srcipt.js"></script>
+  
 </body>
 </html>

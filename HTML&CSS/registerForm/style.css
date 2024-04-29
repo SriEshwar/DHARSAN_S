@@ -40,9 +40,9 @@ body {
   }
   
   .input-container input {
-    width: calc(100% - 40px); /* Adjusting width to accommodate icon */
+    width: calc(100% - 40px); 
     padding: 10px;
-    padding-left: 40px; /* Adjusting left padding for icon */
+    padding-left: 40px; 
     border: 1px solid #ddd;
     border-radius: 4px;
     outline: none;
