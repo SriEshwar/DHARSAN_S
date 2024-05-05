@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- views/signup.ejs -->
+<form id="signupForm" action="/signup" method="POST">
+    <input type="text" name="name" id="name" placeholder="Name">
+    <span id="nameError" class="error"></span>
+    <input type="email" name="email" id="email" placeholder="Email">
+    <span id="emailError" class="error"></span>
+    <input type="tel" name="phone" id="phone" placeholder="Phone">
+    <span id="phoneError" class="error"></span>
+    <input type="password" name="password" id="password" placeholder="Password">
+    <span id="passwordError" class="error"></span>
+    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+    <span id="confirmPasswordError" class="error"></span>
+    <button type="submit">Sign Up</button>
+</form>
+
+<script>
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const phoneInput = document.getElementById('phone');
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('confirmPassword');
+
+nameInput.addEventListener('input', validateName);
+emailInput.addEventListener('input', validateEmail);
+phoneInput.addEventListener('input', validatePhone);
+passwordInput.addEventListener('input', validatePassword);
+confirmPasswordInput.addEventListener('input', validateConfirmPassword);
+
+function validateName() {
+    const name = nameInput.value.trim();
+    const nameError = document.getElementById('nameError');
+    if (name === '') {
+        nameError.textContent = 'Name is required';
+        nameError.style.color = 'red';
+    } else {
+        nameError.textContent = '';
+    }
+}
+
+function validateEmail() {
+    const email = emailInput.value.trim();
+    const emailError = document.getElementById('emailError');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        emailError.textContent = 'Invalid email';
+        emailError.style.color = 'red';
+    } else {
+        emailError.textContent = '';
+    }
+}
+
+function validatePhone() {
+    const phone = phoneInput.value.trim();
+    const phoneError = document.getElementById('phoneError');
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phone)) {
+        phoneError.textContent = 'Invalid phone number';
+        phoneError.style.color = 'red';
+    } else {
+        phoneError.textContent = '';
+    }
+}
+
+function validatePassword() {
+    const password = passwordInput.value;
+    const passwordError = document.getElementById('passwordError');
+    if (password.length < 6) {
+        passwordError.textContent = 'Password must be at least 6 characters long';
+        passwordError.style.color = 'red';
+    } else {
+        passwordError.textContent = '';
+    }
+}
+
+function validateConfirmPassword() {
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+    const confirmPasswordError = document.getElementById('confirmPasswordError');
+    if (password !== confirmPassword) {
+        confirmPasswordError.textContent = 'Passwords do not match';
+        confirmPasswordError.style.color = 'red';
+    } else {
+        confirmPasswordError.textContent = '';
+    }
+}
+</script>
+
+</body>
+</html>
