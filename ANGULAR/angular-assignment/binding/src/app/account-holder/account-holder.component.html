@@ -1,0 +1,29 @@
+<p>Account Holder works!</p>
+
+<div>
+  <label for="accountType">Select Account Type:</label>
+  <select id="accountType" [(ngModel)]="selectedAccountType">
+    <option *ngFor="let type of accountTypes" [value]="type">{{ type }}</option>
+  </select>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Account Number</th>
+      <th>Account Holder Name</th>
+      <th>Type of Account</th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let accountHolder of filteredAccountHolders; trackBy: trackByAccountNumber">
+      <td>{{ accountHolder.accountNumber }}</td>
+      <td>{{ accountHolder.acHolderName }}</td>
+      <td>{{ accountHolder.typeOfAccount }}</td>
+      <td>{{ accountHolder.amount }}</td>
+      <td>{{ accountHolder.dateOfAccountCreation }}</td>
+    </tr>
+  </tbody>
+</table>
