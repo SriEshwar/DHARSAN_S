@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account Homepage</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a [routerLink]="'account-holder'">AccountHolder</a></li>
+                <li><a href="#">Loans</a></li>
+                <li><a href="#">Credit Cards</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a [routerLink]="'contact'">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <router-outlet></router-outlet>
+    <footer>
+        <p>&copy; 2024 Ready to Digital Payments
+        </p>
+    </footer>
+</body>
+</html>
