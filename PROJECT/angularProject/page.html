@@ -1,0 +1,180 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint by Intuit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: url('./img.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            color: #333;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header img {
+            height: 40px;
+        }
+        .header div {
+            display: flex;
+            align-items: center;
+        }
+        .header button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+        }
+        .gradient {
+            background: linear-gradient(to right, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0));
+            padding: 60px 40px;
+            box-sizing: border-box;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-left: 0px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gradient h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .gradient p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        .gradient button {
+            padding: 15px 30px;
+            border: none;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .app-buttons {
+            margin: 20px 0;
+        }
+        .app-buttons img {
+            height: 40px;
+            margin: 0 10px;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #e9ecef;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="https://mint.intuit.com/static-mint/ui/images/logo.png" alt="logo">
+    <div>
+        <button>Sign up</button>
+        <button>Sign in</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="gradient">
+        <h1>Book your favorite sports turf with easy</h1>
+        <p>TurfApp offers the most convenient way to reserve sports turfs for soccer, cricket, tennis, and more. Simply choose your preferred location and time, and secure your spot in minutes.</p>
+        <button>Get Started</button>
+    </div>
+</div>
+
+ <div class="footer">
+    <div>#1 most downloaded personal finance app*</div>
+    <div>Budget-friendly, totally free</div>
+    <div>28°C Cloudy</div>
+    <div>12:47 PM</div>
+    <div>6/29/2021</div>
+</div> 
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turf Booking System</title>
+    <link rel="stylesheet" href="./page.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card new-turf" id="new-turf-btn">
+            <div class="plus">+</div>
+            <p>New Turf</p>
+        </div>
+        <div id="turf-list" class="turf-list"></div>
+    </div>
+
+    <div class="modal" id="turf-form-modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2>Create New Turf</h2>
+            <form id="turf-form">
+                <label for="turf-name">Turf Name:</label>
+                <input type="text" id="turf-name" name="turf-name" required>
+
+                <label for="start-time">Start Time:</label>
+                <input type="time" id="start-time" name="start-time" required>
+
+                <label for="end-time">End Time:</label>
+                <input type="time" id="end-time" name="end-time" required>
+
+                <label for="turf-img">Turf Image:</label>
+                <input type="file" id="turf-img" name="turf-img" accept="image/*" required>
+
+                <label for="fees">Fees:</label>
+                <input type="number" id="fees" name="fees" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./page.js"></script>
+</body>
+</html>
+
+
+
+
+
+
