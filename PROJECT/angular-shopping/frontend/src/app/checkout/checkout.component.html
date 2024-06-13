@@ -1,0 +1,152 @@
+<div class="checkout-container">
+  <div class="checkout-header">
+    <h1 class="logo">E-Store</h1>
+    <div class="steps-navigation">
+      <span [class.active]="step === 1">1. Shipping</span>
+      <span [class.active]="step === 2">2. Delivery</span>
+      <span [class.active]="step === 3">3. Payment</span>
+    </div>
+  </div>
+
+  <div class="checkout-content">
+    <div *ngIf="step === 1" class="shipping-form">
+      <h2>Shipping Information</h2>
+      <form (ngSubmit)="onShippingSubmit()">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input id="email" type="email" [(ngModel)]="shippingDetails.email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone number</label>
+            <input id="phone" type="tel" [(ngModel)]="shippingDetails.phone" name="phone" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First name</label>
+            <input id="firstName" type="text" [(ngModel)]="shippingDetails.firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input id="lastName" type="text" [(ngModel)]="shippingDetails.lastName" name="lastName" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="address">Street address</label>
+          <input id="address" type="text" [(ngModel)]="shippingDetails.address" name="address" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input id="city" type="text" [(ngModel)]="shippingDetails.city" name="city" required>
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <input id="state" type="text" [(ngModel)]="shippingDetails.state" name="state" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" [(ngModel)]="shippingDetails.country" name="country" required>
+              <option value="US">United States</option>
+              <option value="CA">Canada</option>
+              <!-- Add other countries as needed -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="zip">Zip</label>
+            <input id="zip" type="text" [(ngModel)]="shippingDetails.zip" name="zip" required>
+          </div>
+        </div>
+        <button class="btn-continue" type="submit">Continue</button>
+      </form>
+    </div>
+
+    <div *ngIf="step === 2" class="delivery-form">
+      <h2>Delivery Information</h2>
+      <div class="shipping-summary">
+        <p><strong>Email:</strong> {{ shippingDetails.email }}</p>
+        <p><strong>Phone:</strong> {{ shippingDetails.phone }}</p>
+        <p><strong>Address:</strong> {{ shippingDetails.address }}, {{ shippingDetails.city }}, {{ shippingDetails.state }}, {{ shippingDetails.zip }}, {{ shippingDetails.country }}</p>
+        <button class="btn-edit" (click)="editShipping()">Edit</button>
+      </div>
+      <button class="btn-continue" (click)="onDeliverySubmit()">Continue</button>
+    </div>
+
+    <div *ngIf="step === 3" class="payment-form">
+      <h2>Payment Information</h2>
+      <form (ngSubmit)="onPaymentSubmit()">
+        <h3>Choose a payment method</h3>
+        <p>Please select a payment method most convenient to you.</p>
+        
+        <div class="form-group">
+          <label>
+            <input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="creditCard"> Credit Card
+          </label>
+          <div *ngIf="paymentMethod === 'creditCard'" class="credit-card-details">
+            <div class="form-group">
+              <label for="cardName">Name on card</label>
+              <input id="cardName" type="text" [(ngModel)]="cardDetails.name" name="cardName" required>
+            </div>
+            <div class="form-group">
+              <label for="cardNumber">Card number</label>
+              <input id="cardNumber" type="text" [(ngModel)]="cardDetails.number" name="cardNumber" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expiryDate">Expiry Date</label>
+                <input id="expiryDate" type="text" [(ngModel)]="cardDetails.expiryDate" name="expiryDate" placeholder="MM/YY" required>
+              </div>
+              <div class="form-group">
+                <label for="cvc">Security code</label>
+                <input id="cvc" type="text" [(ngModel)]="cardDetails.cvc" name="cvc" required>
+              </div>
+            </div>
+            <div class="form-group checkbox-group">
+              <input type="checkbox" [(ngModel)]="cardDetails.billingSameAsShipping" name="billingSameAsShipping">
+              <label for="billingSameAsShipping">My billing address is the same as my shipping address.</label>
+            </div>
+          </div>
+        </div>
+    
+        <button type="button" (click)="handlePaymentButtonClick('googlePay')" class="btn-pay google-pay">
+          <img src="assets/images/googlepay.png" alt="Google Pay">
+          Google Pay
+        </button>
+    
+        <button type="button" (click)="handlePaymentButtonClick('applePay')" class="btn-pay apple-pay">
+          <img src="assets/images/applepay.png" alt="Apple Pay">
+           Apple Pay
+        </button>
+    
+        <div class="form-group">
+          <label>
+            <input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="cashOnDelivery"> Cash on Delivery
+          </label>
+        </div>
+        
+        <button class="btn-pay conform" type="submit">Confirm and continue</button>
+      </form>
+    </div>
+
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <div *ngFor="let item of cartItems" class="order-item">
+        <img [src]="getImageUrl(item.image)" alt="{{ item.name }}" class="order-item-img">
+        <div class="order-item-details">
+          <p class="order-item-name">{{ item.name }}</p>
+          <p class="order-item-quantity">Quantity: {{ item.quantity }}</p>
+          <p class="order-item-price">{{ item.price | currency }}</p>
+        </div>
+      </div>
+      <div class="summary-totals">
+        <div class="summary-total">
+          <span>Total:</span>
+          <span>{{ total | currency }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

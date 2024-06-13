@@ -1,0 +1,41 @@
+<!-- <div *ngIf="cartItems.length > 0; else emptyCart">
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <img [src]="getImageUrl(item.image)" alt="{{ item.name }}" class="cart-item-image">
+      <div class="cart-item-details">
+        <h4>{{ item.name }}</h4>
+        <p>Price: {{ item.price | currency }}</p>
+        <input type="number" [value]="item.quantity" (change)="updateQuantity(item._id, $event)" min="1">
+        <button (click)="removeItem(item._id)">Remove</button>
+      </div>
+    </div>
+    <button (click)="clearCart()">Clear Cart</button>
+  </div>
+  <ng-template #emptyCart>
+    <p>Your cart is empty</p>
+  </ng-template>
+   -->
+   <div *ngIf="cartItems.length > 0; else emptyCart">
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <img [src]="getImageUrl(item.image)" alt="{{ item.name }}" class="cart-item-image">
+      <div class="cart-item-details">
+        <h4>{{ item.name }}</h4>
+        <p>Price: {{ item.price | currency }}</p>
+        <div class="quantity-controls">
+          <button (click)="decreaseQuantity(item)">-</button>
+          <input type="number" [value]="item.quantity || 1" (change)="updateQuantity(item._id, $event)" min="1">
+          <button (click)="increaseQuantity(item)">+</button>
+        </div>
+        <p>Total: {{ (item.price || 0) * (item.quantity || 1) | currency }}</p>
+        <button (click)="removeItem(item._id)">Remove</button>
+      </div>
+    </div>
+    <div class="cart-summary">
+      <h3>Total Amount: {{ getTotalAmount() | currency }}</h3>
+      <button (click)="clearCart()">Clear Cart</button>
+    </div>
+  </div>
+  <ng-template #emptyCart>
+    <p>Your cart is empty</p>
+  </ng-template>
+  
+  

@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card add-card" (click)="toggleForm()">
+    <p>+ Add Product</p>
+  </div>
+
+  <div *ngIf="showForm" class="form-container">
+    <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <label for="productName">Product Name:</label>
+      <input id="productName" name="productName" [(ngModel)]="productName" required>
+
+      <label for="productPrice">Product Price:</label>
+      <input id="productPrice" name="productPrice" type="number" [(ngModel)]="productPrice" required>
+
+      <label for="productImage">Product Image:</label>
+      <input id="productImage" name="productImage" type="file" (change)="onFileChange($event)" required>
+
+      <button type="submit">Add Product</button>
+    </form>
+  </div>
+
+  <div class="product-list">
+    <div *ngFor="let product of products" class="card">
+      <img [src]="getImageUrl(product.image)" alt="Product Image">
+      <div class="card-details">
+        <h4>{{ product.name }}</h4>
+        <p>{{ product.price | currency }}</p>
+        <p>Rating: {{ product.rating }} / 5</p>
+        <!-- <button>Add to Cart</button> -->
+      </div>
+    </div>
+  </div>
+</div>

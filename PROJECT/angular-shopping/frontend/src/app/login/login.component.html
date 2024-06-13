@@ -1,0 +1,34 @@
+<div class="my-body">
+<div class="login-popup">
+  <div class="login-container">
+    <button class="close-button" (click)="emitClose()">&#x2717;</button>
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email">
+        <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+          Invalid email
+        </div>
+      </div>
+      <div class="form-group password-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password">
+        <span class="toggle-password" (click)="togglePasswordVisibility()">
+          <i [class]="passwordFieldType === 'password' ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+        </span>
+        <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+          Password is required
+        </div>
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+    <div class="signup-container">
+      <span class="signup-text">New User?</span>
+      <button class="signup-button" [routerLink]="'/signup'">Signup</button>
+  </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+</div>
+<router-outlet></router-outlet>

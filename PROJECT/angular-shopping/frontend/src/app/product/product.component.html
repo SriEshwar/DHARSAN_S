@@ -1,0 +1,134 @@
+<!-- <div class="my-body">
+<header>
+  <div class="container header-content">
+      <h1 class="logo">E-Store</h1>
+      <nav>
+          <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#"><i class="material-icons">shopping_cart</i></a></li>
+              <li><a href="#">Logout</a></li>
+          </ul>
+      </nav>
+  </div>
+</header>
+
+<div class="main-container">
+  <div class="sidebar">
+      <h2>Filter</h2>
+      <div>
+          <label>Search</label>
+          <input type="text" placeholder="Search products...">
+      </div>
+      <div>
+          <label>Category</label>
+          <select>
+              <option>Phone</option>
+              <option>Watches</option>
+              <option>Airdopes</option>
+              <option>Laptop</option>
+              <option>PC</option>
+          </select>
+      </div>
+      <div>
+          <label>Price Range</label>
+          <input type="range" min="50" max="500">
+      </div>
+      <div>
+          <label>Brand</label>
+          <select>
+              <option>Brand 1</option>
+              <option>Brand 2</option>
+              <option>Brand 3</option>
+          </select>
+      </div>
+  </div>
+  <div class="product-list">
+      <div *ngFor="let product of products" class="card">
+          <img [src]="getImageUrl(product.image)" alt="Product Image">
+          <div class="card-details">
+              <h4>{{ product.name }}</h4>
+              <p>{{ product.price | currency }}</p>
+              <p class="rating">
+                  Rating:
+                  <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                      <i class="material-icons" [class.filled]="i < (product.rating || 0)">star</i>
+                  </ng-container>
+                  <span>{{ product.rating || 'No ratings yet' }}</span>
+              </p>
+              <div class="button-group">
+                  <button>Add to Cart</button>
+                  <button>Buy Now</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div> -->
+
+<div class="my-body">
+    <header>
+      <div class="container header-content">
+        <h1 class="logo">E-Store</h1>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a >Products</a></li>
+            <li><a [routerLink]="'/cart'"><i class="material-icons">shopping_cart</i></a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  
+    <div class="main-container">
+      <div class="sidebar">
+        <h2>Filter</h2>
+        <div>
+          <label>Search</label>
+          <input type="text" placeholder="Search products...">
+        </div>
+        <div>
+          <label>Category</label>
+          <select>
+            <option>Phone</option>
+            <option>Watches</option>
+            <option>Airdopes</option>
+            <option>Laptop</option>
+            <option>PC</option>
+          </select>
+        </div>
+        <div>
+          <label>Brand</label>
+          <select>
+            <option>Brand 1</option>
+            <option>Brand 2</option>
+            <option>Brand 3</option>
+          </select>
+        </div>
+      </div>
+      <div class="product-list">
+        <div *ngFor="let product of products" class="card">
+          <img [src]="getImageUrl(product.image)" alt="Product Image">
+          <div class="card-details">
+            <h4>{{ product.name }}</h4>
+            <p>{{ product.price | currency }}</p>
+            <p class="rating">
+              Rating:
+              <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                <i class="material-icons" [class.filled]="i < (product.rating || 0)">star</i>
+              </ng-container>
+              <span>{{ product.rating || 'No ratings yet' }}</span>
+            </p>
+            <div class="button-group">
+              <button (click)="addToCart(product)">Add to Cart</button>
+              <button (click)="buyNow(product)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>

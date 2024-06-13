@@ -1,0 +1,42 @@
+<div class="my-body">
+<div class="container">
+  <h2>Signup</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+    <div class="form-group">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="signupForm.controls['name'].invalid && signupForm.controls['name'].touched">
+        Name is required
+      </div>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email">
+      <div *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].touched">
+        Invalid email
+      </div>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password">
+      <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched">
+        Password is required
+      </div>
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" formControlName="confirmPassword">
+      <div *ngIf="signupForm.controls['confirmPassword'].invalid && signupForm.controls['confirmPassword'].touched">
+        Passwords must match
+      </div>
+    </div>
+    </div>
+    <button type="submit" [disabled]="signupForm.invalid">Signup</button>
+  </form>
+  <div class="login-container">
+    <span class="login-text">Already User</span>
+    <button class="login-button" [routerLink]="'/login'">Login</button>
+</div>
+</div>
+</div>

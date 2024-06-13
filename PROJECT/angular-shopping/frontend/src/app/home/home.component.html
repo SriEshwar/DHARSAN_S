@@ -1,0 +1,58 @@
+<div class="my-body">
+    <header>
+        <div class="container header-content">
+            <h1 class="logo">E-Store</h1>
+            <nav>
+                <ul>
+                    <!-- <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#"><i class="material-icons">shopping_cart</i></a></li> -->
+                    <li><a (click)="openLogin()">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="carousel"  #carousel>
+            <div class="carousel-slide" style="background-image: url('assets/images/img1.jpg')"></div>
+            <div class="carousel-slide" style="background-image: url('../../assets/images/img17.jpg');"></div>
+            <div class="carousel-slide" style="background-image: url('../../assets/images/img10.jpg');"></div>
+            <div class="carousel-slide" style="background-image: url('../../assets/images/img16.jpg');"></div>
+            <!-- <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+            <a class="next" onclick="moveSlide(1)">&#10095;</a> -->
+        </div>
+        <div class="hero-content">
+            <div class="overlay"></div>
+            <h2>Our Best Collections For You</h2>
+            <p>All the brand of watch,camera,mobile,laptop,airdopes are available</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <h3><i class="material-icons">local_shipping</i> Free Shipping</h3>
+                <p>Free shipping on order</p>
+            </div>
+            <div class="feature">
+                <h3><i class="material-icons">support_agent</i> Support 24/7</h3>
+                <p>Contact us 24 hrs a day</p>
+            </div>
+            <div class="feature">
+                <h3><i class="material-icons">lock</i> Payment Secure</h3>
+                <p>Secure payment on order</p>
+            </div>
+        </div>
+    </section>
+<!-- 
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 E-store. All rights reserved.</p>
+        </div>
+    </footer> -->
+</div>
+<app-login  *ngIf="showLogin" (close)="closeLogin()"></app-login>
+<router-outlet></router-outlet>
