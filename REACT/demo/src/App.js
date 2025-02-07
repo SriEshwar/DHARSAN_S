@@ -10,6 +10,8 @@ import Home from './home';
 import Contact from './contact';
 import Product from './product';
 import Hooks from './hooks';
+import { Controllogin } from './controllogin';
+import Sample from './sample';
 function App() {
   return (
     // <div className="App">
@@ -30,7 +32,9 @@ function App() {
     //   <Route path='product' element={<Product/>}></Route>
     // </Routes>
     // </BrowserRouter>
-    <Hooks/>
+    // <Hooks/>
+    // <Controllogin/>
+    <Sample/>
   );
 }
 

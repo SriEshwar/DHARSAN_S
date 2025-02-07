@@ -1,70 +1,165 @@
-.cart-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .cart-item-image {
-    width: 80px;
-    height: 80px;
-    margin-right: 20px;
-    border-radius: 5px;
-  }
-  
-  .cart-item-details {
-    flex: 1;
-  }
-  
-  .quantity-controls {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .quantity-controls button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-  
-  .quantity-controls button:hover {
-    background-color: #0056b3;
-  }
-  
-  .quantity-controls input {
-    width: 50px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 5px;
-  }
-  
-  .cart-summary {
-    text-align: right;
-    margin-top: 20px;
-  }
-  
-  .cart-summary h3 {
-    margin-bottom: 20px;
-  }
-  
-  button {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-  
-  button:hover {
-    background-color: #c82333;
-  }
-  
+/* Cart header styles */
+.cart-header {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.cart-header button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cart-header button.active,
+.cart-header button:hover {
+  background-color: #ff6f61;
+  color: #fff;
+}
+
+/* Cart container styles */
+.cart-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background: #f5f7fa;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Cart items and order items container styles */
+.cart-items-container,
+.order-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Cart item and order item styles */
+.cart-item,
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cart item and order item image styles */
+.cart-item-image,
+.order-item-img,
+.ordered-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Cart item and order item details styles */
+.cart-item-details,
+.order-item-details {
+  flex-grow: 1;
+}
+
+.item-name,
+.order-item-name {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.item-price,
+.order-item-price,
+.item-quantity,
+.order-item-quantity,
+.item-total {
+  margin-bottom: 5px;
+}
+
+/* Cart summary styles */
+.cart-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.total-amount h3,
+.total-amount p {
+  margin: 0;
+}
+
+/* Action buttons styles */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.action-buttons button,
+.action-buttons a {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ff6f61;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-buttons button:hover,
+.action-buttons a:hover {
+  background-color: #ff8a73;
+}
+
+/* Empty cart or order message styles */
+.empty-cart-message,
+.empty-order-message,
+.no-orders-message {
+  text-align: center;
+}
+
+.empty-cart-message p,
+.empty-order-message p,
+.no-orders-message p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* Browse products link styles */
+.browse-products {
+  padding: 10px 20px;
+  background-color: #ff6f61;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.browse-products:hover {
+  background-color: #ff8a73;
+}
+
+/* Cancel order button styles */
+.cancel-order-button {
+  padding: 10px 20px;
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancel-order-button:hover {
+  background-color: #ff8a73;
+}

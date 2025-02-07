@@ -6,13 +6,29 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-  setProduct(product: any) {
-    throw new Error('Method not implemented.');
-  }
-  private cartItems: Product[] = [];
-  private cartSubject = new BehaviorSubject<Product[]>([]);
+  private cartItems: Product[] = this.getFromLocalStorage('cartItems') || [];
+  private orderedItems: Product[] = this.getFromLocalStorage('orderedItems') || [];
+  private currentOrder: Product[] = this.getFromLocalStorage('currentOrder') || [];
+  private orderPlacedTime: Date = this.getFromLocalStorage('orderPlacedTime') ? new Date(this.getFromLocalStorage('orderPlacedTime')) : new Date();
+  private orderPlaced: boolean = this.getFromLocalStorage('orderPlaced') || false;
 
-  cart$ = this.cartSubject.asObservable();
+  cart$ = new BehaviorSubject<Product[]>(this.cartItems);
+  orderedItems$ = new BehaviorSubject<Product[]>(this.orderedItems);
+  currentOrder$ = new BehaviorSubject<Product[]>(this.currentOrder);
+  orderPlaced$ = new BehaviorSubject<boolean>(this.orderPlaced);
+
+  private updateLocalStorage(key: string, data: any) {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(key, JSON.stringify(data));
+    }
+  }
+
+  private getFromLocalStorage(key: string): any {
+    if (typeof localStorage !== 'undefined') {
+      return JSON.parse(localStorage.getItem(key) || 'null');
+    }
+    return null;
+  }
 
   addToCart(product: Product) {
     const existingProduct = this.cartItems.find(item => item._id === product._id);
@@ -22,25 +38,29 @@ export class CartService {
       product.quantity = 1;
       this.cartItems.push(product);
     }
-    this.cartSubject.next(this.cartItems);
+    this.updateLocalStorage('cartItems', this.cartItems);
+    this.cart$.next(this.cartItems);
   }
 
   removeFromCart(productId: string) {
     this.cartItems = this.cartItems.filter(item => item._id !== productId);
-    this.cartSubject.next(this.cartItems);
+    this.updateLocalStorage('cartItems', this.cartItems);
+    this.cart$.next(this.cartItems);
   }
 
   updateQuantity(productId: string, quantity: number) {
     const product = this.cartItems.find(item => item._id === productId);
     if (product) {
       product.quantity = quantity;
-      this.cartSubject.next(this.cartItems);
+      this.updateLocalStorage('cartItems', this.cartItems);
+      this.cart$.next(this.cartItems);
     }
   }
 
   clearCart() {
     this.cartItems = [];
-    this.cartSubject.next(this.cartItems);
+    this.updateLocalStorage('cartItems', this.cartItems);
+    this.cart$.next(this.cartItems);
   }
 }
 

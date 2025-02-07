@@ -1,0 +1,19 @@
+<div>
+    <h1>ReviewLearning</h1>
+    <a [href]="hrefUrl">Google</a>
+</div>
+<div>
+    <button (click) = "hello ()">Click me</button>
+    <p>{{message}}</p>
+</div>
+<div>
+    <input type="text" [(ngModel)]="name" >
+    <p>Hello {{name}}, Welcome</p>
+</div>
+
+<div>
+<input type="number" [(ngModel)]="fontSize" placeholder="Enter font size">
+<input type="range" [(ngModel)]="fontSize" min="10" max="50">
+<p [style.fontSize.px]="fontSize">This text changes size!</p>
+
+</div>

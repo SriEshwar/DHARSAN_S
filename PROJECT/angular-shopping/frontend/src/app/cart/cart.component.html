@@ -1,41 +1,72 @@
-<!-- <div *ngIf="cartItems.length > 0; else emptyCart">
-    <div *ngFor="let item of cartItems" class="cart-item">
-      <img [src]="getImageUrl(item.image)" alt="{{ item.name }}" class="cart-item-image">
-      <div class="cart-item-details">
-        <h4>{{ item.name }}</h4>
-        <p>Price: {{ item.price | currency }}</p>
-        <input type="number" [value]="item.quantity" (change)="updateQuantity(item._id, $event)" min="1">
-        <button (click)="removeItem(item._id)">Remove</button>
-      </div>
-    </div>
-    <button (click)="clearCart()">Clear Cart</button>
-  </div>
-  <ng-template #emptyCart>
-    <p>Your cart is empty</p>
-  </ng-template>
-   -->
-   <div *ngIf="cartItems.length > 0; else emptyCart">
-    <div *ngFor="let item of cartItems" class="cart-item">
-      <img [src]="getImageUrl(item.image)" alt="{{ item.name }}" class="cart-item-image">
-      <div class="cart-item-details">
-        <h4>{{ item.name }}</h4>
-        <p>Price: {{ item.price | currency }}</p>
-        <div class="quantity-controls">
-          <button (click)="decreaseQuantity(item)">-</button>
-          <input type="number" [value]="item.quantity || 1" (change)="updateQuantity(item._id, $event)" min="1">
-          <button (click)="increaseQuantity(item)">+</button>
+<div class="cart-header">
+  <button (click)="showCart()" [class.active]="view === 'cart'">Cart</button>
+  <button (click)="showOrderSummary()" [class.active]="view === 'orderSummary'">Order Summary</button>
+</div>
+
+<div *ngIf="view === 'cart'">
+  <div class="cart-container">
+    <div *ngIf="cartItems.length > 0; else emptyCart" class="cart-items-container">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <img [src]="getImageUrl(item.image)" alt="{{ item.name }}" class="cart-item-image">
+        <div class="cart-item-details">
+          <h4 class="item-name">{{ item.name }}</h4>
+          <p class="item-price">Price: {{ item.price | currency }}</p>
+          <div class="quantity-controls">
+            <button (click)="decreaseQuantity(item)">-</button>
+            <input type="number" [value]="item.quantity || 1" (change)="updateQuantity(item._id, $event)" min="1">
+            <button (click)="increaseQuantity(item)">+</button>
+          </div>
+          <p class="item-total">Total: {{ (item.price || 0) * (item.quantity || 1) | currency }}</p>
+          <button class="remove-button" (click)="removeItem(item._id)">Remove</button>
         </div>
-        <p>Total: {{ (item.price || 0) * (item.quantity || 1) | currency }}</p>
-        <button (click)="removeItem(item._id)">Remove</button>
+      </div>
+      <div class="cart-summary">
+        <div class="total-amount">
+          <h3>Total Amount:</h3>
+          <p>{{ getTotalAmount() | currency }}</p>
+        </div>
+        <div class="action-buttons">
+          <button class="clear-cart-button" (click)="clearCart()">Clear Cart</button>
+          <button class="buy-now-button" (click)="buyNow()">Buy Now</button>
+          <a href="#" class="back-to-product" (click)="backToProduct()">Back to Product</a>
+        </div>
       </div>
     </div>
-    <div class="cart-summary">
-      <h3>Total Amount: {{ getTotalAmount() | currency }}</h3>
-      <button (click)="clearCart()">Clear Cart</button>
+    <ng-template #emptyCart>
+      <div class="empty-cart-message">
+        <p>Your cart is empty</p>
+        <a [routerLink]="'/product'" class="browse-products">Browse Products</a>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<div *ngIf="view === 'orderSummary'">
+  <div *ngIf="orderList.length > 0; else noOrders" class="order-list">
+    <div *ngFor="let order of orderList" class="order-item">
+      <h4>Order #{{ order._id }}</h4>
+      <p><strong>Delivery Date:</strong> {{ order.deliveryDate | date }}</p>
+      <div class="ordered-items">
+        <div *ngFor="let productWrapper of order.products" class="ordered-item">
+          <img [src]="getImageUrl(productWrapper.productId.image)" alt="{{ productWrapper.productId.name }}" class="ordered-item-image">
+          <div class="ordered-item-details">
+            <h5 class="item-name">{{ productWrapper.productId.name }}</h5>
+            <p class="item-price">Price: {{ productWrapper.productId.price | currency }}</p>
+          </div>
+        </div>
+      </div>
+      <button *ngIf="order.canBeCanceled" (click)="cancelOrder(order._id)">Cancel Order</button>
+      <div *ngIf="order.isDelivered">Delivery successfully</div>
     </div>
   </div>
-  <ng-template #emptyCart>
-    <p>Your cart is empty</p>
+  <ng-template #noOrders>
+    <div class="no-orders-message">
+      <p>You have no orders placed yet.</p>
+      <a [routerLink]="'/products'" class="browse-products">Browse Products</a>
+    </div>
   </ng-template>
-  
-  
+</div>
+
+<router-outlet></router-outlet>
+
+<router-outlet></router-outlet>

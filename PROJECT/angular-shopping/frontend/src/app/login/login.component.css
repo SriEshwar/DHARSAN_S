@@ -37,7 +37,7 @@ a {
 
 .login-container h2 {
     margin-bottom: 20px;
-    color: #ff6f61;
+    color: #d5601c;
     font-size: 24px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -67,12 +67,12 @@ a {
 }
 
 .form-group input:focus {
-    border-color: #ff6f61;
+    border-color: #f68a31;
     outline: none;
 }
 
 .form-group div {
-    color: red;
+    color: rgb(255, 89, 0);
     font-size: 12px;
     margin-top: 5px;
 }
@@ -93,7 +93,7 @@ a {
 button[type="submit"] {
     width: 100%;
     padding: 12px;
-    background: #ff6f61;
+    background: #ffa061;
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -105,7 +105,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background: #e55b50;
+    background: #e59150;
 }
 
 button[disabled] {
@@ -130,8 +130,8 @@ button[disabled] {
 .signup-button {
     padding: 10px 20px;
     background: #ffffff;
-    color: #ff6f61;
-    border: 1px solid #ff6f61;
+    color: #ffa561;
+    border: 1px solid #ff9e61;
     border-radius: 10px;
     font-size: 14px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -140,7 +140,7 @@ button[disabled] {
 }
 
 .signup-button:hover {
-    background: #ff6f61;
+    background: #ff9361;
     color: #ffffff;
 }
 

@@ -1,7 +1,7 @@
 <div class="my-body">
 <div class="login-popup">
   <div class="login-container">
-    <button class="close-button" (click)="emitClose()">&#x2717;</button>
+    <button class="close-button" (click)="closeLogin()">&#x2717;</button>
     <h2>Login</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <div class="form-group">
@@ -25,10 +25,9 @@
     </form>
     <div class="signup-container">
       <span class="signup-text">New User?</span>
-      <button class="signup-button" [routerLink]="'/signup'">Signup</button>
+      <button class="signup-button" (click)="openSignup()">Signup</button>
   </div>
   </div>
   <router-outlet></router-outlet>
 </div>
 </div>
-<router-outlet></router-outlet>

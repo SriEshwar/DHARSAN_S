@@ -127,8 +127,19 @@
           </label>
         </div>
         
-        <button class="btn-pay conform" type="submit">Confirm and continue</button>
+        <button class="btn-pay confirm" type="submit">Confirm and continue</button>
       </form>
+      <div *ngIf="orderPlaced" class="order-popup">
+        <div class="order-popup-content">
+          <h2>Order Placed Successfully!</h2>
+          <p>Thank you for your purchase.</p>
+          <div class="countdown-timer">
+            <div class="circle">
+              <span>{{ countdown }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="order-summary">

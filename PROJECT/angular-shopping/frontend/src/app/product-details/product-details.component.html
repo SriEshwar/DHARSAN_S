@@ -1,0 +1,64 @@
+<div class="body">
+  <div class="product-page" *ngIf="product">
+    <div class="left-panel">
+      <img [src]="getImageUrl(product.image)" alt="Product Image" class="product-image">
+      <div class="button-container">
+        <button class="btn add-to-cart" (click)="addToCart(product)">Add to Cart</button>
+        <button class="btn buy-now" (click)="buyNow(product)">Buy Now</button>
+      </div>
+    </div>
+    <div class="right-panel">
+      <div class="product-details">
+        <h2>{{ product.name }}</h2>
+        <p class="price">{{ product.price | currency }}</p>
+        <div class="rating">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span> / 5</span>
+        </div>
+        <p class="description">{{ product.description }}</p>
+        <div class="highlights card">
+          <h3>Highlights</h3>
+          <ul>
+            <li>{{ product.highlight }}</li>
+          </ul>
+        </div>
+        <div class="specifications card">
+          <h3>Specifications</h3>
+          <ul>
+            <li>{{ product.specification }}</li>
+          </ul>
+        </div>
+        <div class="delivery card">
+          <h3 class="section-title">Delivery Information</h3>
+          <p class="section-subtitle">Please enter your delivery pincode to check availability.</p>
+          <label for="postcode">Delivery Pincode: </label>
+          <input id="postcode" type="text" [(ngModel)]="postcode" class="input" placeholder="Enter your pincode">
+          <button class="btn check-btn" (click)="checkDelivery()">Check</button>
+        </div>
+        <div class="rate-review">
+          <h3>Rate and Review</h3>
+          <ng-container *ngIf="!hasRated; else alreadyRated">
+            <div>
+              <label>Rating:</label>
+              <select [(ngModel)]="rating">
+                <option *ngFor="let star of [1, 2, 3, 4, 5]" [value]="star">{{ star }}</option>
+              </select>
+            </div>
+            <textarea [(ngModel)]="review" placeholder="Write your review here"></textarea>
+            <button class="btn submit-review-btn" (click)="submitReview()">Submit Review</button>
+          </ng-container>
+          <ng-template #alreadyRated>
+            <p>You have already rated this product.</p>
+          </ng-template>
+        </div>
+        <div class="user-reviews">
+          <h3>User Reviews</h3>
+          <div *ngFor="let review of product.reviews">
+            <p><strong>{{ review.userId }}</strong>: {{ review.review }}</p>
+          </div>
+          <p *ngIf="!product || !product.reviews || product.reviews.length === 0">No reviews yet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

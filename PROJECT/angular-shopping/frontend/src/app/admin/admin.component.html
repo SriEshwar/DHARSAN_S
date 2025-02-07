@@ -11,9 +11,27 @@
       <label for="productPrice">Product Price:</label>
       <input id="productPrice" name="productPrice" type="number" [(ngModel)]="productPrice" required>
 
+      <label for="productCategory">Product Category:</label>
+      <select id="productCategory" name="productCategory" [(ngModel)]="productCategory" required>
+        <option value="Phone">Phone</option>
+        <option value="Watches">Watches</option>
+        <option value="Airdopes">Airdopes</option>
+        <option value="Laptop">Laptop</option>
+        <option value="PC">PC</option>
+        <option value="Camera">Camera</option>
+      </select>
+
       <label for="productImage">Product Image:</label>
       <input id="productImage" name="productImage" type="file" (change)="onFileChange($event)" required>
 
+      <label for="productDescription">Product Description:</label>
+      <textarea id="productDescription" name="productDescription" [(ngModel)]="productDescription" required></textarea>
+    
+      <label for="productSpecifications">Product Specifications:</label>
+      <textarea id="productSpecifications" name="productSpecifications" [(ngModel)]="productSpecification" required></textarea>
+    
+      <label for="productHighlights">Product Highlights:</label>
+      <textarea id="productHighlights" name="productHighlights" [(ngModel)]="productHighlight" required></textarea>
       <button type="submit">Add Product</button>
     </form>
   </div>
@@ -25,7 +43,9 @@
         <h4>{{ product.name }}</h4>
         <p>{{ product.price | currency }}</p>
         <p>Rating: {{ product.rating }} / 5</p>
-        <!-- <button>Add to Cart</button> -->
+        <p >{{product.description}}</p>
+        <p >{{product.specification}}</p>
+        <p>{{product.highlight}}</p>
       </div>
     </div>
   </div>

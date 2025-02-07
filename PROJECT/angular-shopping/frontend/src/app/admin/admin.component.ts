@@ -2,20 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Product } from '../models/product';
 
-interface Product {
-  name: string;
-  price: number;
-  image: string;
-  rating?: number;
-}
+// interface Product {
+//   name: string;
+//   price: number;
+//   image: string;
+//   rating?: number;
+//   category: string;
+// }
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+  styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
 
@@ -23,7 +25,11 @@ export class AdminComponent implements OnInit {
   products: Product[] = [];
   productName: string = '';
   productPrice: number = 0;
+  productCategory: string = '';
   selectedFile: File | null = null;
+  productDescription: string = '';
+  productSpecification: string = '';
+  productHighlight: string = '';
 
   constructor(private productService: ProductService) {}
 
@@ -51,8 +57,11 @@ export class AdminComponent implements OnInit {
     const formData = new FormData();
     formData.append('name', this.productName);
     formData.append('price', this.productPrice.toString());
+    formData.append('category', this.productCategory);
     formData.append('image', this.selectedFile, this.selectedFile.name);
-
+    formData.append('description', this.productDescription);
+    formData.append('specification', this.productSpecification);
+    formData.append('highlight', this.productHighlight);
     this.productService.addProduct(formData).subscribe(
       (newProduct: Product) => {
         this.products.push(newProduct);
@@ -74,6 +83,7 @@ export class AdminComponent implements OnInit {
       }
     );
   }
+
   getImageUrl(imagePath: string): string {
     return `http://localhost:3000/${imagePath}`;
   }
