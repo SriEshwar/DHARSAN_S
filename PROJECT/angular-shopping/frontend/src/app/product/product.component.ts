@@ -22,6 +22,8 @@ export class ProductComponent {
   showLogin = false;
   dropdownVisible = false;
   maxPrice: number = Infinity;
+  private hideTimeout: any;
+
 
   constructor(private productService: ProductService,private cartService: CartService,private router : Router,
     public authService:AuthService
@@ -64,11 +66,14 @@ export class ProductComponent {
     this.authService.logout();
   }
   showDropdown() {
-    this.dropdownVisible = true;
+  clearTimeout(this.hideTimeout);
+  this.dropdownVisible = true;
   }
 
   hideDropdown() {
+   this.hideTimeout = setTimeout(() => {
     this.dropdownVisible = false;
+  }, 200);
   }
   openLogin() {
     console.log('Opening login...');

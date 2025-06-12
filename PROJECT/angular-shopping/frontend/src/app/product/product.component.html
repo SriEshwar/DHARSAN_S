@@ -8,17 +8,18 @@
           <li><a [routerLink]="'/product'">Products</a></li>
           <li><a [routerLink]="'/cart'"><i class="material-icons">shopping_cart</i></a></li>
           <ng-container *ngIf="authService.isLoggedIn(); else notLoggedIn">
-            <li class="profile-menu" 
-                (mouseenter)="showDropdown()" 
-                (mouseleave)="hideDropdown()">
-                <a href="javascript:void(0);">
-                    <i class="material-icons">person</i>
-                </a>
-                <ul class="dropdown" *ngIf="dropdownVisible">
-                    <li class="username"><a>{{ authService.getUserName() }}</a></li>
-                    <li class="logout"><a (click)="logout()">Logout</a></li>
-                </ul>
-            </li>
+          <li class="profile-menu" 
+            (mouseenter)="showDropdown()" 
+            (mouseleave)="hideDropdown()">
+            <a href="javascript:void(0);">
+            <i class="material-icons">person</i>
+            </a>
+            <ul class="dropdown" *ngIf="dropdownVisible">
+              <li class="username"><a>{{ authService.getUserName() }}</a></li>
+              <li class="logout"><a (click)="logout()">Logout</a></li>
+            </ul>
+          </li>
+
           </ng-container>
           <ng-template #notLoggedIn>
             <li><a (click)="openLogin()">Login</a></li>
@@ -28,51 +29,70 @@
     </div>
   </header>
 
-  <div class="main-container">
-    <div class="sidebar">
-      <h2>Filter</h2>
-      <div>
-        <label>Search</label>
-        <input type="text" placeholder="Search products..." [(ngModel)]="searchTerm" (input)="fetchProducts()">
-      </div>
-      <div>
-        <label>Category</label>
-        <select [(ngModel)]="selectedCategory" (change)="fetchProducts()">
-          <option value="">All</option>
-          <option value="Phone">Phone</option>
-          <option value="Watches">Watches</option>
-          <option value="Airdopes">Airdopes</option>
-          <option value="Laptop">Laptop</option>
-          <option value="PC">PC</option>
-        </select>
-      </div>
-      <div>
-        <label>Price</label>
-        <input type="number" placeholder="Enter price..." [(ngModel)]="maxPrice" (input)="fetchProducts()">
-      </div>
-      <div class="extra-content">
-        <h3 class="section-title">Top Deals</h3>
-        <p>Check out our top deals on electronics!</p>
-        <button>View Deals</button>
-      </div>
-      <div class="extra-content">
-        <h3 class="section-title">New Arrivals</h3>
-        <p>Discover the latest products in our store.</p>
-        <button>Shop Now</button>
-      </div>
+<div class="main-container">
+  <aside class="sidebar">
+    <h2 class="sidebar-title">Filter Products</h2>
+
+    <div class="filter-group">
+      <label>Search</label>
+      <input
+        type="text"
+        class="filter-input"
+        placeholder="Search products..."
+        [(ngModel)]="searchTerm"
+        (input)="fetchProducts()"
+      />
     </div>
+
+    <div class="filter-group">
+      <label>Category</label>
+      <select
+        class="filter-select"
+        [(ngModel)]="selectedCategory"
+        (change)="fetchProducts()"
+      >
+        <option value="">All</option>
+        <option value="Phone">Phone</option>
+        <option value="Watches">Watches</option>
+        <option value="Airdopes">Airdopes</option>
+        <option value="Laptop">Laptop</option>
+        <option value="PC">PC</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label>Price (Max)</label>
+      <input
+        type="number"
+        class="filter-input"
+        placeholder="Enter max price..."
+        [(ngModel)]="maxPrice"
+        (input)="fetchProducts()"
+      />
+    </div>
+
+    <div class="promo-card">
+      <h3>Top Deals</h3>
+      <p>Check out hot discounts on tech essentials!</p>
+      <button class="promo-btn">View Deals</button>
+    </div>
+
+    <div class="promo-card new-arrivals">
+      <h3>New Arrivals</h3>
+      <p>Discover the latest trends and launches.</p>
+      <button class="promo-btn">Shop Now</button>
+    </div>
+  </aside>
+
 
     <div class="product-list">
       <div *ngFor="let product of products" class="card">
         <div class="card-image" (click)="viewProductDetails(product._id)">
           <img [src]="getImageUrl(product.image)" alt="Product Image">
           <div class="price-tag">{{ product.price | currency:'INR':'symbol'}}</div>
-          <div class="favorite-tag">❤</div>
-
         </div>
         <div class="card-details">
           <h4 (click)="viewProductDetails(product._id)">{{ product.name }}</h4>
-          <div class="description">{{ product.description }}</div>
           <div class="rating">
             <span class="stars">
               <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">

@@ -17,7 +17,7 @@ app.use(express.json());
 jwtToken = 'chdc12@5d7acyeT6GHab3'
 
 // Connect to MongoDB
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
@@ -104,6 +104,7 @@ app.post('/api/signup', async (req, res) => {
     const token = jwt.sign({ id: newUser._id }, 'jwtToken', { expiresIn: '1h' });
     res.json({ token });
   } catch (err) {
+    console.error('Signup Error:', err);
     res.status(500).send('Server error');
   }
 });

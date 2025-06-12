@@ -33,7 +33,7 @@ export class SignupComponent {
   onSignup() {
     if (this.signupForm.valid) {
       this.authService.signup(this.signupForm.value).subscribe(() => {
-        this.router.navigate(['/login']);
+        this.showLogin.emit();
       });
     }
   }
