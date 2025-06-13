@@ -1,33 +1,41 @@
 <div class="my-body">
-  <header>
-    <div class="container header-content">
-      <h1 class="logo">E-Store</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a [routerLink]="'/product'">Products</a></li>
-          <li><a [routerLink]="'/cart'"><i class="material-icons">shopping_cart</i></a></li>
-          <ng-container *ngIf="authService.isLoggedIn(); else notLoggedIn">
-          <li class="profile-menu" 
+<header>
+  <div class="container header-content">
+    <h1 class="logo">E-Store</h1>
+
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a [routerLink]="'/product'">Products</a></li>
+        <li><a [routerLink]="'/cart'"><i class="material-icons">shopping_cart</i></a></li>
+      </ul>
+    </nav>
+
+    <div class="profile-wrapper">
+      <ng-container *ngIf="authService.isLoggedIn(); else notLoggedIn">
+        <li class="profile-menu" 
             (mouseenter)="showDropdown()" 
             (mouseleave)="hideDropdown()">
             <a href="javascript:void(0);">
-            <i class="material-icons">person</i>
+                <i class="material-icons">person</i>
             </a>
-            <ul class="dropdown" *ngIf="dropdownVisible">
-              <li class="username"><a>{{ authService.getUserName() }}</a></li>
-              <li class="logout"><a (click)="logout()">Logout</a></li>
-            </ul>
-          </li>
+  
+  <!-- Dropdown shows when dropdownVisible is true -->
+          <ul class="dropdown" *ngIf="dropdownVisible">
+             <li class="username"><a>{{ authService.getUserName() }}</a></li>
+            <li class="logout"><a (click)="logout()">Logout</a></li>
+           </ul>
+        </li>
 
-          </ng-container>
-          <ng-template #notLoggedIn>
-            <li><a (click)="openLogin()">Login</a></li>
-          </ng-template>
-        </ul>
-      </nav>
+      </ng-container>
+
+      <ng-template #notLoggedIn>
+        <a (click)="openLogin()">Login</a>
+      </ng-template>
     </div>
-  </header>
+  </div>
+</header>
+
 
 <div class="main-container">
   <aside class="sidebar">

@@ -13,6 +13,7 @@ body, html {
 }
 
 /* === Header === */
+/* === Header === */
 header {
   background: #fff;
   padding: 0.3rem 1.2rem;
@@ -25,43 +26,79 @@ header {
   height: 60px;
 }
 
+/* Flex layout with space for left, center, right */
 .header-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   height: 100%;
 }
 
+/* Logo (left side, optional if needed) */
 .logo {
   font-size: 1.3rem;
   font-weight: 600;
-  color:  #333;
+  color: #333;
+  flex: 1;
+}
+
+/* Centered nav menu */
+nav {
+  flex: 2;
+  display: flex;
+  justify-content: center;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  position: relative;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #333;
   font-size: 0.95rem;
+  padding: 6px 10px;
+  transition: color 0.3s;
 }
 
+nav ul li a:hover {
+  color: #007bff;
+}
+
+/* Material icon size */
 .material-icons {
   font-size: 20px;
   vertical-align: middle;
 }
 
-/* === Profile Dropdown === */
+/* === Profile menu (far right) === */
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
 .profile-menu {
   position: relative;
   cursor: pointer;
 }
 
+.profile-menu i {
+  font-size: 22px;
+  color: #333;
+}
+
+/* Dropdown hidden by default */
 .dropdown {
   position: absolute;
   top: 36px;
@@ -70,15 +107,13 @@ nav ul li a {
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   min-width: 160px;
-  display: none;
   z-index: 999;
+  text-align: center;
 }
 
-/* Show dropdown on hover */
-.profile-menu:hover .dropdown {
-  display: block;
-}
 
+
+/* Dropdown items */
 .dropdown li {
   padding: 10px 16px;
   font-size: 0.9rem;
